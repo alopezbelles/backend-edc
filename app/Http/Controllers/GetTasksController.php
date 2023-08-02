@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 
-class TaskController extends Controller
+class GetTasksController extends Controller
 {
     public function index()
     {
