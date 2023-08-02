@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GetTasksController;
 use App\Http\Controllers\CreateTaskController;
 use App\Http\Controllers\EditTaskController;
+use App\Http\Controllers\DeleteTaskController;
 
 
 
@@ -15,4 +16,7 @@ Route::post('/createtask', [CreateTaskController::class, 'create'])->withoutMidd
 
 //Edite task
 Route::put('/edittask/{id}', [EditTaskController::class, 'update']);
+
+//Delete task
+Route::delete('/deletetask/{id}', [DeleteTaskController::class, 'destroy']);
 

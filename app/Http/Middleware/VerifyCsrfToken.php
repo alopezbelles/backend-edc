@@ -9,6 +9,7 @@ class VerifyCsrfToken extends Middleware
 
     protected $except = [
         '/createtask',
-        '/edittask/*'
+        '/edittask/*',
+        '/deletetask/*',
     ];
 }
