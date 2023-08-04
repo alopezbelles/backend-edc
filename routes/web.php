@@ -8,7 +8,7 @@ use App\Http\Controllers\DeleteTaskController;
 
 
 
-Route::middleware('cors')->group(function () {
+
     //Get all tasks from database
     Route::get('/alltasks', [GetTasksController::class, 'index']);
 
@@ -20,5 +20,5 @@ Route::middleware('cors')->group(function () {
 
     //Delete task
     Route::delete('/deletetask/{id}', [DeleteTaskController::class, 'destroy']);
-});
+
 
