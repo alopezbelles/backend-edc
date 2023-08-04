@@ -7,18 +7,16 @@ use App\Http\Controllers\EditTaskController;
 use App\Http\Controllers\DeleteTaskController;
 
 
+//Get all tasks from database
+Route::get('/alltasks', [GetTasksController::class, 'index']);
 
+//Create new task
+Route::post('/createtask', [CreateTaskController::class, 'create'])->withoutMiddleware(['csrf']);
 
-    //Get all tasks from database
-    Route::get('/alltasks', [GetTasksController::class, 'index']);
+//Edit task
+Route::put('/edittask/{id}', [EditTaskController::class, 'update']);
 
-    //Create new task
-    Route::post('/createtask', [CreateTaskController::class, 'create'])->withoutMiddleware(['csrf']);
-
-    //Edit task
-    Route::put('/edittask/{id}', [EditTaskController::class, 'update']);
-
-    //Delete task
-    Route::delete('/deletetask/{id}', [DeleteTaskController::class, 'destroy']);
+//Delete task
+Route::delete('/deletetask/{id}', [DeleteTaskController::class, 'destroy']);
 
 
