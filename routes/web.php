@@ -8,15 +8,15 @@ use App\Http\Controllers\DeleteTaskController;
 
 
 //Get all tasks from database
-Route::get('/alltasks', [GetTasksController::class, 'index']);
+Route::get('/alltasks', [GetTasksController::class, 'index'])->withoutMiddleware(['csrf']);
 
 //Create new task
 Route::post('/createtask', [CreateTaskController::class, 'create'])->withoutMiddleware(['csrf']);
 
 //Edit task
-Route::put('/edittask/{id}', [EditTaskController::class, 'update']);
+Route::put('/edittask/{id}', [EditTaskController::class, 'update'])->withoutMiddleware(['csrf']);
 
 //Delete task
-Route::delete('/deletetask/{id}', [DeleteTaskController::class, 'destroy']);
+Route::delete('/deletetask/{id}', [DeleteTaskController::class, 'destroy'])->withoutMiddleware(['csrf']);
 
 
