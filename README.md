@@ -1,66 +1,47 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# BACKEND-BARREL-CLOUD
+Backend Repository Trip Wise for Barrel Cloud
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Datos generales
 
-## About Laravel
+**- Autor del proyecto:** Alejandro López Bellés
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**- Título del proyecto:** TASK PLANNER
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**- Fecha:** 07/08/2023
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Tecnologías y dependencias: 
 
-## Learning Laravel
+![tecnologias-backend-php](https://github.com/alopezbelles/backend-edc/assets/113507322/d29e6dde-757e-4392-8d11-6fd7f1979d2b)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Descripción general del proyecto 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+El proyecto se enfoca en el diseño y desarrollo de una base de datos y una API para la gestión de una plataforma de gestión de tareas. El proyecto está desarrollado utilizando el lenguaje PHP con el framework LARAVEL con ARTISAN como gestión de líneas de comandos, y se gestiona con MySQL. También se ha utilizado Composer como herramienta de gestión de dependencias. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Pasos para arrancar el proyecto en entorno local
+- Clonar el proyecto en el entorno local con php instalado en el sistema local.
+- Tener Composer instalado en el sistema local. 
+- Asegurarse de tener un servidor MySQL configurado en el entorno local.
+- Clonar el repositorio con el comando git clone <URL_DEL_REPOSITORIO>.
+- Instalar las dependencias ejecutando el comando "composer install". Esto instalará las dependencias mencionadas en el archivo composer.json.
+- Configurar el archivo .env. Crear un archivo .env. Se facilitará por privado las credenciales para la ejecución de la base de datos. Copiar todo el contenido del archivo .txt adjunto y pegarlo en el archivo creado .env.
+- Para gestionar la base de datos, crear la base de datos en MySQL o cualquier otro motor de base de datos compatible. Utilizar las credenciales del archivo .env.
+- Ejecutar el comando "php artisan migrate" para ejecutar las migraciones y crear las tablas en la base de datos.
+- Ejecutar el comando "php artisan db:seed" para migrar los seeders de la entidad Task. Esto añadirá los registros a la base de datos para tener una vista previa del funcionamiento inicial de la aplicación en el frontend.
+- Iniciar el servidor de desarrollo, una vez configurados los pasos anteriores, con el comando "php artisan serve".
 
-## Laravel Sponsors
+### Tablas
+La base de datos consta de una única tabla llamada "Task". Esta entidad tiene los siguientes atributos: "id", "title", "description", "status", "description" "createdAt" y "updatedAt".
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Endpoints
+Para poder ejetutar los endpoints se ejecuta la raiz:
+## ** [http://localhost:3656] 
+Sustituir el puerto por el puerto que tengamos en entonrno local. 
 
-### Premium Partners
+A continuación de esta ruta, se añaden los endpoints con las peticiones GET, POST, PUT y DELETE en el postman o algún servicio similar. 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- GET /alltasks --> Mostrará el listado con todas las tareas.
+- POST /createtask --> Añadirá una nueva tarea a la lista. En la petición de postman (o una herramienta similar) introducir en el body en formato json: {"title": "nuevo título", "description": "nueva descripción".
+- Put /edittask/{id} --> Editará una tarea de la base de datos (siendo {id} la id del registro a eliminar). En la petición introducir en el body en formato json {"title": "nuevo titulo", "status":"nuevo status", "description": "nueva descripción".
+- Delete /deletetask/{id} --> Eliminará una tarea de la base de datos (siendo {id} la id del registro a eliminar). En este caso la id se introduce por parámetro en la ruta. 
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
