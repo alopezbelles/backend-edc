@@ -1,5 +1,5 @@
-# BACKEND-BARREL-CLOUD
-Backend Repository Trip Wise for Barrel Cloud
+# BACKEND-EDC-PHP
+Backend Repository Task Manager - EDC
 
 ### Datos generales
 
